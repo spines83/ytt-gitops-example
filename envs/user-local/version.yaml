@@ -1,0 +1,9 @@
+#@data/values
+---
+#@overlay/match missing_ok=True
+image:
+  component_a: 
+    repository: docker.io
+    project: nginx
+    tag: latest
+  component_b: nginx:latest
