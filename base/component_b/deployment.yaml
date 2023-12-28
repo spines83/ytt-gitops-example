@@ -1,0 +1,28 @@
+#@ load("@ytt:data", "data")
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment-b
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: #@ data.values.image.component_b
+        ports:
+        - containerPort: 80
+        env:
+        #@ for envVar in data.values.environment:
+        - name: #@ envVar.name
+          value: #@ envVar.value
+        #@ end

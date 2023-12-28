@@ -1,0 +1,6 @@
+#@data/values
+---
+#@overlay/match missing_ok=True
+image:
+  component_a: nginx:1.14.2
+  component_b: nginx:1.14.2
